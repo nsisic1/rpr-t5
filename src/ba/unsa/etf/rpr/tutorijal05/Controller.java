@@ -40,5 +40,83 @@ public class Controller {
         this.operacija = operacija;
     }
 
+   public void jedan(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("1");
+        } else {
+            setTekst(getTekst() + "1");
+        }
+    }
+
+    public void dva(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("2");
+        } else {
+            setTekst(getTekst() + "2");
+        }
+
+    }
+
+    public void tri(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("3");
+        } else {
+            setTekst(getTekst() + "3");
+        }
+    }
+
+    public void cetiri(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("4");
+        } else {
+            setTekst(getTekst() + "4");
+        }
+    }
+
+    public void pet(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("5");
+        } else {
+            setTekst(getTekst() + "5");
+        }
+    }
+
+    public void sest(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("6");
+        } else {
+            setTekst(getTekst() + "6");
+        }
+    }
+
+    public void sedam(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("7");
+        } else {
+            setTekst(getTekst() + "7");
+        }
+    }
+
+    public void osam(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("8");
+        } else {
+            setTekst(getTekst() + "8");
+        }
+    }
+
+    public void devet(ActionEvent actionEvent) {
+        if (getTekst().equals("0")) {
+            setTekst("9");
+        } else {
+            setTekst(getTekst() + "9");
+        }
+    }
+
+    public void nula(ActionEvent actionEvent) {
+        if (!getTekst().equals("0")) {
+            setTekst(getTekst() + "0");
+        }
+    }
 
 }
