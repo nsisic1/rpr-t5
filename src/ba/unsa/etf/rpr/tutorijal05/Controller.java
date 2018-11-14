@@ -40,7 +40,7 @@ public class Controller {
         this.operacija = operacija;
     }
 
-   public void jedan(ActionEvent actionEvent) {
+    public void jedan(ActionEvent actionEvent) {
         if (getTekst().equals("0")) {
             setTekst("1");
         } else {
@@ -119,4 +119,40 @@ public class Controller {
         }
     }
 
+    public void plus(ActionEvent actionEvent) {
+        setOperandPrvi(Double.parseDouble(getTekst()));
+        setOperacija("+");
+        setTekst("0");
+    }
+
+    public void minus(ActionEvent actionEvent) {
+        setOperandPrvi(Double.parseDouble(getTekst()));
+        setOperacija("-");
+        setTekst("0");
+    }
+
+    public void slash(ActionEvent actionEvent) {
+        operandPrvi = Double.parseDouble(getTekst());
+        operacija = "/";
+        setTekst("0");
+    }
+
+    public void puta(ActionEvent actionEvent) {
+        operandPrvi = Double.parseDouble(getTekst());
+        operacija = "x";
+        setTekst("0");
+    }
+
+    public void tacka(ActionEvent actionEvent) {
+        if (!getTekst().contains(".")) {
+            setTekst(getTekst() + ".");
+        }
+    }
+
+
+    public void posto(ActionEvent actionEvent) {
+        setOperandPrvi(Double.parseDouble(getTekst()));
+        setOperacija("%");
+        setTekst("0");
+    }
 }
