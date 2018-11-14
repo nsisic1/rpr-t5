@@ -1,21 +1,22 @@
 package ba.unsa.etf.rpr.tutorijal05;
+import javafx.event.ActionEvent;
 import javafx.scene.text.Text;
 
 public class Controller {
 
     private Text tekst;
-    private double broj = 0;
+    private double operandPrvi = 0;
     private String operacija = "";
 
     public Controller() {
         tekst = new Text("0");
     }
 
-    public String getTekst() {
+    private String getTekst() {
         return tekst.getText();
     }
 
-    public void setTekst(String s) {
+    private void setTekst(String s) {
         this.tekst.setText(s);
     }
 
@@ -23,19 +24,19 @@ public class Controller {
         return tekst;
     }
 
-    public double getbroj() {
-        return broj;
+    private double getOperandPrvi() {
+        return operandPrvi;
     }
 
-    public void setbroj(double broj) {
-        this.broj = broj;
+    private void setOperandPrvi(double operandPrvi) {
+        this.operandPrvi = operandPrvi;
     }
 
-    public String getoperacija() {
+    private String getOperacija() {
         return operacija;
     }
 
-    public void setoperacija(String operacija) {
+    private void setOperacija(String operacija) {
         this.operacija = operacija;
     }
 
