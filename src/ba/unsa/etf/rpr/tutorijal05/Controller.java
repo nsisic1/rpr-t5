@@ -9,6 +9,7 @@ public class Controller {
     private SimpleStringProperty tekst;
     private double operandPrvi;
     private String operacija;
+    final private String PRAZAN_DRUGI_OPERAND = "";
 
     public Controller() {
         tekst = new SimpleStringProperty("0");
@@ -126,38 +127,37 @@ public class Controller {
     public void plus(ActionEvent actionEvent) {
         setOperandPrvi(Double.parseDouble(getTekst()));
         setOperacija("+");
-        setTekst("0");
+        setTekst(PRAZAN_DRUGI_OPERAND);
     }
 
     public void minus(ActionEvent actionEvent) {
         setOperandPrvi(Double.parseDouble(getTekst()));
         setOperacija("-");
-        setTekst("0");
+        setTekst(PRAZAN_DRUGI_OPERAND);
     }
 
     public void slash(ActionEvent actionEvent) {
         operandPrvi = Double.parseDouble(getTekst());
         operacija = "/";
-        setTekst("0");
+        setTekst(PRAZAN_DRUGI_OPERAND);
     }
 
     public void puta(ActionEvent actionEvent) {
         operandPrvi = Double.parseDouble(getTekst());
         operacija = "X";
-        setTekst("0");
+        setTekst(PRAZAN_DRUGI_OPERAND);
+    }
+
+    public void rem(ActionEvent actionEvent) {
+        setOperandPrvi(Double.parseDouble(getTekst()));
+        setOperacija("%");
+        setTekst(PRAZAN_DRUGI_OPERAND);
     }
 
     public void tacka(ActionEvent actionEvent) {
         if (!getTekst().contains(".")) {
             setTekst(getTekst() + ".");
         }
-    }
-
-
-    public void posto(ActionEvent actionEvent) {
-        setOperandPrvi(Double.parseDouble(getTekst()));
-        setOperacija("%");
-        setTekst("0");
     }
 
     public void jednako(ActionEvent actionEvent) {
@@ -179,7 +179,8 @@ public class Controller {
                 break;
             case "/" :
                 if (operandDrugi == 0) {
-                    throw new IllegalArgumentException("Ne smije se dijeliti sa 0");
+                    setTekst("Ne moze se dijeliti sa 0");
+                    // throw new IllegalArgumentException("Ne moze se dijeliti sa 0");
                 } else {
                     rezultat = getOperandPrvi() / operandDrugi;
                     setTekst(rezultat.toString());

@@ -48,7 +48,7 @@
             <Button fx:id="btn7" onAction="#sedam" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="7" GridPane.rowIndex="2" />
             <Button fx:id="btn8" onAction="#osam" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="btn9" onAction="#devet" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="percentBtn" onAction="#posto" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="\%" GridPane.rowIndex="1" />
+            <Button fx:id="remainderBtn" onAction="#rem" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="\%" GridPane.rowIndex="1" />
             <Button fx:id="divideBtn" onAction="#slash" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="/" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="multiplyBtn" onAction="#puta" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="X" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Button fx:id="minusBtn" onAction="#minus" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
