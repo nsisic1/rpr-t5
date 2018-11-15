@@ -142,4 +142,22 @@ class MainTest {
         assertEquals("62.5", display.getText());
     }
 
+    @Test
+    public void number83Remainder7Equals (FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn8");
+        robot.clickOn("#btn3");
+        robot.clickOn("#remainderBtn");
+        robot.clickOn("#btn7");
+        robot.clickOn("#equalsBtn");
+        assertEquals("6.0", display.getText());
+    }
+
+    @Test
+    public void emptySecondOperand(FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#divideBtn");
+        assertEquals("", display.getText());
+    }
+
 }
