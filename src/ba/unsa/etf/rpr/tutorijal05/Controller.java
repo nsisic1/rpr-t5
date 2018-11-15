@@ -1,27 +1,31 @@
 package ba.unsa.etf.rpr.tutorijal05;
+
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.text.Text;
 
 public class Controller {
 
-    private Text tekst;
-    private double operandPrvi = 0;
-    private String operacija = "";
+    private SimpleStringProperty tekst;
+    private double operandPrvi;
+    private String operacija;
 
     public Controller() {
-        tekst = new Text("0");
+        tekst = new SimpleStringProperty("0");
+        operandPrvi = 0;
+        operacija = "";
     }
 
-    private String getTekst() {
-        return tekst.getText();
+    public SimpleStringProperty tekstProperty() {
+        return tekst;
+    }
+
+    public String getTekst() {
+        return tekst.get();
     }
 
     private void setTekst(String s) {
-        this.tekst.setText(s);
-    }
-
-    public Text tekstProperty() {
-        return tekst;
+        tekst.setValue(s);
     }
 
     private double getOperandPrvi() {
@@ -139,7 +143,7 @@ public class Controller {
 
     public void puta(ActionEvent actionEvent) {
         operandPrvi = Double.parseDouble(getTekst());
-        operacija = "x";
+        operacija = "X";
         setTekst("0");
     }
 
@@ -154,5 +158,37 @@ public class Controller {
         setOperandPrvi(Double.parseDouble(getTekst()));
         setOperacija("%");
         setTekst("0");
+    }
+
+    public void jednako(ActionEvent actionEvent) {
+        Double rezultat;
+        double operandDrugi = Double.parseDouble(getTekst());
+
+        switch (getOperacija()) {
+            case "+" :
+                rezultat = getOperandPrvi() + operandDrugi;
+                setTekst(rezultat.toString());
+                break;
+            case "-" :
+                rezultat = getOperandPrvi() - operandDrugi;
+                setTekst(rezultat.toString());
+                break;
+            case "X" :
+                rezultat = getOperandPrvi() * operandDrugi;
+                setTekst(rezultat.toString());
+                break;
+            case "/" :
+                if (operandDrugi == 0) {
+                    throw new IllegalArgumentException("Ne smije se dijeliti sa 0");
+                } else {
+                    rezultat = getOperandPrvi() / operandDrugi;
+                    setTekst(rezultat.toString());
+                }
+                break;
+            case "%" :
+                rezultat = getOperandPrvi() % operandDrugi;
+                setTekst(rezultat.toString());
+                break;
+         }
     }
 }
