@@ -116,6 +116,30 @@ class MainTest {
         assertEquals("Ne moze se dijeliti sa 0", display.getText());
     }
 
+    @Test
+    public void number456Times123Equals (FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn4");
+        robot.clickOn("#btn5");
+        robot.clickOn("#btn6");
+        robot.clickOn("#multiplyBtn");
+        robot.clickOn("#btn1");
+        robot.clickOn("#btn2");
+        robot.clickOn("#btn3");
+        robot.clickOn("#equalsBtn");
+        assertEquals("56088.0", display.getText());
+    }
 
+    @Test
+    public void number500Divide8Equals (FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn5");
+        robot.clickOn("#btn0");
+        robot.clickOn("#btn0");
+        robot.clickOn("#divideBtn");
+        robot.clickOn("#btn8");
+        robot.clickOn("#equalsBtn");
+        assertEquals("62.5", display.getText());
+    }
 
 }
