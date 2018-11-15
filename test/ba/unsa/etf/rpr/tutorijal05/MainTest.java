@@ -106,4 +106,16 @@ class MainTest {
         robot.clickOn("#btn0");
         assertEquals("10", display.getText());
     }
+
+    @Test
+    public void zeroDvd (FxRobot robot)  {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#divideBtn");
+        robot.clickOn("#btn0");
+        robot.clickOn("#equalsBtn");
+        assertEquals("Ne moze se dijeliti sa 0", display.getText());
+    }
+
+
+
 }
