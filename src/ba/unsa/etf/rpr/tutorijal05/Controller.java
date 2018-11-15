@@ -179,8 +179,8 @@ public class Controller {
                 break;
             case "/" :
                 if (operandDrugi == 0) {
-                    setTekst("Ne moze se dijeliti sa 0");
-                    // throw new IllegalArgumentException("Ne moze se dijeliti sa 0");
+                    //setTekst("Ne moze se dijeliti sa 0");
+                    throw new IllegalArgumentException("Ne moze se dijeliti sa 0");
                 } else {
                     rezultat = getOperandPrvi() / operandDrugi;
                     setTekst(rezultat.toString());

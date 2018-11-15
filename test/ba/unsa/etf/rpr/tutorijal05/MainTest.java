@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testfx.api.FxRobot;
+import org.testfx.api.FxRobotException;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
@@ -112,8 +113,9 @@ class MainTest {
         display = robot.lookup("#display").queryAs(Label.class);
         robot.clickOn("#divideBtn");
         robot.clickOn("#btn0");
-        robot.clickOn("#equalsBtn");
-        assertEquals("Ne moze se dijeliti sa 0", display.getText());
+        assertThrows(FxRobotException.class, () -> { robot.clickOn("equalsBtn"); });
+        //assertThrows(IllegalArgumentException.class, () -> {System.out.println(1/0);});
+        // assertEquals("Ne moze se dijeliti sa 0", display.getText());
     }
 
     @Test
@@ -154,10 +156,29 @@ class MainTest {
     }
 
     @Test
-    public void emptySecondOperand(FxRobot robot) {
+    public void emptySecondOperand (FxRobot robot) {
         display = robot.lookup("#display").queryAs(Label.class);
         robot.clickOn("#divideBtn");
         assertEquals("", display.getText());
     }
+
+    @Test
+    public void twoOperations (FxRobot robot) {
+        display = robot.lookup("#display").queryAs(Label.class);
+        robot.clickOn("#btn8");
+        robot.clickOn("#btn3");
+        robot.clickOn("#plusBtn");
+        robot.clickOn("#btn1");
+        robot.clickOn("#btn7");
+        robot.clickOn("#equalsBtn");
+        robot.clickOn("#btn2");
+        robot.clickOn("#plusBtn");
+        robot.clickOn("#btn4");
+        robot.clickOn("#dotBtn");
+        robot.clickOn("#btn3");
+        robot.clickOn("#equalsBtn");
+        assertEquals("104.32", display.getText());
+    }
+
 
 }
